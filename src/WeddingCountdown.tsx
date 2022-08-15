@@ -13,7 +13,7 @@ const renderer = ({ total, days, hours, minutes } : CountdownProps) => {
     if (total) {
         // Render a countdown
         return (
-            <span style={{ color: 'blue' }}>
+            <span style={{ fontFamily: 'courier new' , color: 'darksalmon' }}>
         {days} days, {hours} hours, {minutes} minutes until #idilbydo
       </span>
         );
@@ -22,11 +22,13 @@ const renderer = ({ total, days, hours, minutes } : CountdownProps) => {
         return <Container />;
     }
 };
-const weddingDate = new Date('2023-10-06 15:00:00')
+const weddingDate = new Date('2023-10-06T15:00:00')
     .toLocaleString("en-US", {timeZone: "America/St_Johns"});
 
 export const WeddingCountdown = () => {
     return (
-        <Center><Countdown date={weddingDate} renderer={renderer}/></Center>
+        <Center>
+            <Countdown date={weddingDate} renderer={renderer}/>
+        </Center>
     );
 }
