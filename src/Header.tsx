@@ -1,5 +1,5 @@
 import * as React from "react"
-import {Box, SimpleGrid, Link, useColorModeValue, chakra} from "@chakra-ui/react";
+import {Box, SimpleGrid, Link, chakra} from "@chakra-ui/react";
 import "@fontsource/oswald"
 import "@fontsource/pinyon-script"
 
@@ -15,11 +15,10 @@ const HeaderBox = chakra(Box, {
 
 
 export const Header = () => {
-    const color = useColorModeValue('gray.800', 'gray.800')
     return (
-        <Box paddingBottom={5}>
-            <Box textAlign='center' p={2} fontFamily={`'Pinyon Script', sans-serif`} fontSize={78} color='#666'>Charlotte and Dylan</Box>
-            <SimpleGrid columns={{base: 2, sm: 2, md: 2, lg:5, xl: 5}} textAlign='center' color={color}>
+        <Box paddingBottom={10}>
+            <Box textAlign='center' p={2} fontFamily={`'Pinyon Script', sans-serif`} fontSize={78} color='custom.1'>Charlotte & Dylan</Box>
+            <SimpleGrid columns={{base: 2, sm: 2, md: 2, lg:5, xl: 5}} textAlign='center' color='custom.2'>
                 <HeaderBox><Link>Invitation</Link></HeaderBox>
                 <HeaderBox><Link>Schedule</Link></HeaderBox>
                 <HeaderBox><Link>RSVP</Link></HeaderBox>

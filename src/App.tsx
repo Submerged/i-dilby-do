@@ -5,16 +5,16 @@ import {
     Grid,
     Image,
     Center,
-    theme
 } from "@chakra-ui/react"
 import { Header } from "./Header"
 import {Main} from "./Main";
 import {Footer} from "./Footer";
+import {theme} from './theme';
 
 export const App = () => (
     <ChakraProvider theme={theme}>
         <Box height='100vh'>
-            <Box textAlign="start" fontSize="xl" paddingLeft={[10,10,200]} paddingRight={[10,10,200]} paddingTop={10} paddingBottom={10}>
+            <Box bg='custom.3' textAlign="start" fontSize="xl" paddingLeft={[10,10,200]} paddingRight={[10,10,200]} paddingTop={10} paddingBottom={10}>
                 <Grid>
                     <Header/>
                     <Center>

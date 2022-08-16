@@ -1,4 +1,4 @@
-import {Center, Container} from "@chakra-ui/react";
+import {Center, Container,Text} from "@chakra-ui/react";
 import Countdown from 'react-countdown';
 import * as React from "react";
 
@@ -13,9 +13,9 @@ const renderer = ({ total, days, hours, minutes } : CountdownProps) => {
     if (total) {
         // Render a countdown
         return (
-            <span style={{ fontFamily: 'courier new' , color: 'darksalmon' }}>
-        {days} days, {hours} hours, {minutes} minutes until #idilbydo
-      </span>
+            <Text fontFamily='Courier New, Serif' color='custom.4'>
+                {days} days, {hours} hours, {minutes} minutes until #idilbydo
+            </Text>
         );
     } else {
         // Render a finished state

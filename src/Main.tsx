@@ -26,7 +26,7 @@ export const Main = () => {
     return (
         <VStack fontFamily='Open Sans, sans-serif' color='gray.600' spacing='44px'>
             <Container textAlign='center' paddingTop={30}>
-                <Heading fontFamily='Open sans, sans-serif' color='darksalmon' >Oct 6, 2023</Heading>
+                <Heading fontFamily='Open sans, sans-serif' color='custom.4' >Oct 6, 2023</Heading>
                 <WeddingCountdown />
             </Container>
 
@@ -34,39 +34,42 @@ export const Main = () => {
                 <Heading>Invitation</Heading>
             </Center>
             <Center textAlign='center'>
-                Charlotte & Dylan
+                Charlotte Woolfrey & Dylan Perry
                 <br/>
-                Would love your presence
-                <br/>
+                would love your presence
                 in celebrating their marriage
+                <br/>
                 <br/>
                 Friday | October 6 | 2023
                 <br/>
                 Three o'clock in the afternoon
                 <br/>
+                <br/>
                 The Wilds Resort
                 <br/>
                 643 Salmonier Line, Route 90 South, Holyrood, NL, A0A 2R0
+                <br/>
                 <br/>
                 With cocktail reception later in the evening.
             </Center>
             <Center>
                 <Heading>Schedule</Heading>
             </Center>
-            <Center textAlign='left'>
+            <Center textAlign='center'>
                 3:00 pm - The Wilds Resort - Ceremony
+                <br/>
                 <br/>
                 - break -
                 <br/>
-                7:00 pm - The Wilds Resort - Cocktail & Hors d'ouvres reception
                 <br/>
+                7:00 pm - The Wilds Resort - Cocktail & Hors d'ouvres reception
             </Center>
             <Center>
                 <Heading>RSVP</Heading>
             </Center>
 
             <Center>
-                <SimpleGrid columns={{sm: 1, md: 1}} spacing={10}>
+                <SimpleGrid columns={{sm: 1, md: 1}} spacing={10} >
                     <InputGroup>
                         <InputLeftElement
                             pointerEvents='none'
@@ -97,6 +100,33 @@ export const Main = () => {
                     <Button onClick={() => console.log('click-a-do')}>Submit</Button>
                 </SimpleGrid>
             </Center>
+
+            <Center>
+                <Heading>Accommodations</Heading>
+            </Center>
+            <Center textAlign='center'>                
+                For more information on The Wilds Resort, check out their website.
+                <br/>
+                To book accommodations, please use wedding reservation code: WOOLFREY/PERRY.
+                </Center>
+
+            <Center fontFamily='Open sans, sans-serif' fontWeight= 'bold' textAlign='center' color='custom.1'>                
+                 COVID Protocols 
+                 </Center>
+            <Center textAlign='center' color='custom.1'>      
+                At this time, we do not intend to have any COVID protocols in place, but feel free to do what feels safe for you. Mask wearing, etc, is currently optional in Newfoundland.
+            </Center>
+
+
+            <Center>
+                <Heading>Couple & Crew</Heading>
+            </Center>
+            <Center textAlign='center'>                
+                See, ya gots da b'ys that builds the boats
+                <br/>
+                then there's the b'ys that sails 'em
+                </Center>
+
         </VStack>
     )
 }
