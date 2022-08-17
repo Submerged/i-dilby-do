@@ -1,6 +1,7 @@
 import {Center, Container,Text} from "@chakra-ui/react";
 import Countdown from 'react-countdown';
 import * as React from "react";
+import "@fontsource/amatic-sc"
 
 interface CountdownProps {
     total: number,
@@ -13,7 +14,7 @@ const renderer = ({ total, days, hours, minutes } : CountdownProps) => {
     if (total) {
         // Render a countdown
         return (
-            <Text fontFamily='Courier New, Serif' color='custom.4'>
+            <Text fontFamily='Amatic SC, Sans Serif' color='custom.3'>
                 {days} days, {hours} hours, {minutes} minutes until #idilbydo
             </Text>
         );

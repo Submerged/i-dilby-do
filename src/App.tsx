@@ -18,7 +18,7 @@ export const App = () => (
                 <Grid>
                     <Header/>
                     <Center>
-                        <Image maxHeight={600} objectFit='cover' src='https://i.imgur.com/fx2LnWS.jpeg' alt='Dan Abramov' />
+                        <Image borderRadius={12} maxHeight={600} objectFit='cover' src='https://i.imgur.com/fx2LnWS.jpeg' alt='Dan Abramov' />
                     </Center>
                     <Main/>
                 </Grid>
