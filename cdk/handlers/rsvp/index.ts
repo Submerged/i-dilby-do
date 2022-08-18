@@ -11,6 +11,7 @@ interface RSVPProp  {
     Name: string;
     Children: number;
     Attendance: string;
+    Date: string;
 }
 const appendSpreadsheet = async (row: any) => {
     try {
@@ -33,7 +34,8 @@ export async function main(
 ): Promise<APIGatewayProxyResultV2> {
     console.log('event 👉', event);
 
-    const newRow = JSON.parse(<string>event.body) as RSVPProp;
+    const newRow = JSON.parse(<string>event.body);
+    newRow.Date = Date();
     await appendSpreadsheet(newRow);
     return {
         body: JSON.stringify({message: newRow}),
