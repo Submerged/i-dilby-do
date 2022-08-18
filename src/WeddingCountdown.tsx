@@ -14,7 +14,7 @@ const renderer = ({ total, days, hours, minutes } : CountdownProps) => {
     if (total) {
         // Render a countdown
         return (
-            <Text fontFamily='Amatic SC, Sans Serif' color='custom.3'>
+            <Text fontFamily='Amatic SC, Sans Serif' color='custom.4' fontSize='150%'>
                 {days} days, {hours} hours, {minutes} minutes until #idilbydo
             </Text>
         );
