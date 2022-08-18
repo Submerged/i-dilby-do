@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/i-dilby-do/static/css/main.0efa4d9e.css",
-    "main.js": "/i-dilby-do/static/js/main.374fe1d6.js",
+    "main.js": "/i-dilby-do/static/js/main.c7434d4d.js",
     "static/js/787.953918d6.chunk.js": "/i-dilby-do/static/js/787.953918d6.chunk.js",
     "static/media/amatic-sc-all-400-normal.woff": "/i-dilby-do/static/media/amatic-sc-all-400-normal.754e547b1de5fbccbabd.woff",
     "static/media/beau-rivage-all-400-normal.woff": "/i-dilby-do/static/media/beau-rivage-all-400-normal.875baf2971a3b188d07f.woff",
@@ -46,11 +46,11 @@
     "static/media/oswald-cyrillic-ext-400-normal.woff2": "/i-dilby-do/static/media/oswald-cyrillic-ext-400-normal.7b46ac3618f42c81c1cf.woff2",
     "index.html": "/i-dilby-do/index.html",
     "main.0efa4d9e.css.map": "/i-dilby-do/static/css/main.0efa4d9e.css.map",
-    "main.374fe1d6.js.map": "/i-dilby-do/static/js/main.374fe1d6.js.map",
+    "main.c7434d4d.js.map": "/i-dilby-do/static/js/main.c7434d4d.js.map",
     "787.953918d6.chunk.js.map": "/i-dilby-do/static/js/787.953918d6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0efa4d9e.css",
-    "static/js/main.374fe1d6.js"
+    "static/js/main.c7434d4d.js"
   ]
 }
