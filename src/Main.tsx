@@ -37,6 +37,7 @@ import "@fontsource/reenie-beanie"
 import "@fontsource/ruluko"
 import "@fontsource/sacramento"
 import "@fontsource/sarina"
+import "@fontsource/shadows-into-light"
 
 const StyledHeading = chakra(Text, {
     baseStyle:{
@@ -51,8 +52,8 @@ const CONTAINER_WIDTH = '600px';
 export const Main = () => {
     return (
         <VStack paddingTop={50} fontFamily= 'Ruluko, sans-serif' color='custom.4' spacing='44px'>
-            <Container maxWidth={CONTAINER_WIDTH} p={50} textAlign='center' bg='custom.8' borderRadius={12} >
-                <Heading fontFamily='Amatic SC, sans-serif' fontSize='3rem' color='custom.4' > - Oct 6, 2023 - </Heading>
+            <Container maxWidth={CONTAINER_WIDTH} p={50} textAlign='center' borderRadius={12} >
+                <Heading fontFamily='Ruluko, sans-serif' fontSize='3rem' color='custom.4' > - Oct 6, 2023 - </Heading>
                 <WeddingCountdown />
             </Container>
 
@@ -91,7 +92,7 @@ export const Main = () => {
             <Divider orientation='horizontal'/>
 
 
-            <Container maxWidth={CONTAINER_WIDTH} p={50} textAlign='center' bg='custom.8' borderRadius={12}>
+            <Container maxWidth={CONTAINER_WIDTH} p={50} textAlign='center' border='2px' borderColor='custom.7' borderRadius={12}>
                 <Center>
                     <StyledHeading>Schedule</StyledHeading>
                 </Center>
@@ -111,7 +112,7 @@ export const Main = () => {
             <Divider orientation='horizontal' borderColor={'custom.7'}/>
             <Divider orientation='horizontal'/>
 
-            <Container maxWidth={CONTAINER_WIDTH} p={50} textAlign='center' bg='custom.2' borderRadius={12}>
+            <Container maxWidth={CONTAINER_WIDTH} p={70} textAlign='center' bg='custom.2' borderRadius={12}>
                 <Box bg='custom.8' p={10} color='custom.1' borderRadius={12}>
                     <Center>
                         <StyledHeading pb={10} color='custom.1' fontSize='40px' >RSVP</StyledHeading>
