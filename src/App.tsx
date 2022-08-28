@@ -10,7 +10,7 @@ import { Header } from "./Header"
 import {Main} from "./Main";
 import {Footer} from "./Footer";
 import {theme} from './theme';
-
+import hero from './hero.png';
 export const App = () => (
     <ChakraProvider theme={theme}>
         <Box height='100vh'>
@@ -18,7 +18,7 @@ export const App = () => (
                 <Grid>
                     <Header/>
                     <Center>
-                        <Image borderRadius={12} maxHeight={600} objectFit='cover' src='https://i.imgur.com/fx2LnWS.jpeg' alt='Dan Abramov' />
+                        <Image borderRadius={12} maxHeight={600} objectFit='cover' src={hero} />
                     </Center>
                     <Main/>
                 </Grid>

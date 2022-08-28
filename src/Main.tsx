@@ -1,33 +1,14 @@
 import {
     Heading,
     Center,
-    Input,
-    SimpleGrid,
-    InputGroup,
-    InputLeftElement,
-    RadioGroup,
-    Radio,
-    Stack,
-    Button,
     VStack,
     Container,
-    NumberInputField,
-    NumberInput,
-    NumberInputStepper,
-    NumberIncrementStepper,
-    NumberDecrementStepper,
     Divider,
-    Box,
     Text,
-    chakra,
-    FormControl,
-    FormLabel
 } from "@chakra-ui/react";
-import { BsFillPersonFill } from 'react-icons/bs';
 import {WeddingCountdown} from "./WeddingCountdown";
 import * as React from "react";
 import { Link } from '@chakra-ui/react'
-import { EmailIcon } from '@chakra-ui/icons'
 import "@fontsource/amatic-sc"
 import "@fontsource/beau-rivage"
 import "@fontsource/bonheur-royale"
@@ -36,22 +17,15 @@ import "@fontsource/reenie-beanie"
 import "@fontsource/ruluko"
 import "@fontsource/sacramento"
 import "@fontsource/sarina"
-import "@fontsource/shadows-into-light"
+import { Rsvp } from "./Rsvp";
+import {CONTAINER_MAX_WIDTH, HEADING_FONT_SIZE, StyledHeading} from "./const";
 
-const StyledHeading = chakra(Text, {
-    baseStyle:{
-        fontFamily: `Sacramento, sans-serif`,
-        fontWeight: '700',
-        color:'custom.4'
-    }
-});
 
-const CONTAINER_WIDTH = '600px';
 export const Main = () => {
     return (
         <VStack paddingTop={50} fontFamily= 'Ruluko, sans-serif' color='custom.4' spacing='44px'>
-            <Container maxWidth={CONTAINER_WIDTH} p={50} textAlign='center' borderRadius={12} >
-                <Heading fontFamily='Ruluko, sans-serif' fontSize='3rem' color='custom.4' > - Oct 6, 2023 - </Heading>
+            <Container maxWidth={CONTAINER_MAX_WIDTH} p={50} textAlign='center' bg='custom.8' borderRadius={12} >
+                <Heading fontFamily='Amatic SC, sans-serif' fontSize={{ base: '32px', sm: '40px', md: '40px', lg: '56px' }} color='custom.4' > - Oct 6, 2023 - </Heading>
                 <WeddingCountdown />
             </Container>
 
@@ -59,9 +33,9 @@ export const Main = () => {
             <Divider orientation='horizontal' borderColor={'custom.7'}/>
             <Divider orientation='horizontal'/>
 
-            <Container maxWidth={CONTAINER_WIDTH} p={50} textAlign='center' bg='custom.8' borderRadius={12}>
+            <Container maxWidth={CONTAINER_MAX_WIDTH} p={50} textAlign='center' bg='custom.8' borderRadius={12}>
                 <Center>
-                    <StyledHeading fontSize={{ base: '24px', md: '40px', lg: '56px' }}>Invitation</StyledHeading>
+                    <StyledHeading fontSize={HEADING_FONT_SIZE}>Invitation</StyledHeading>
                 </Center>
                 <Center textAlign='center'>
                     <br/>
@@ -90,9 +64,9 @@ export const Main = () => {
             <Divider orientation='horizontal'/>
 
 
-            <Container maxWidth={CONTAINER_WIDTH} p={50} textAlign='center' border='2px' borderColor='custom.7' borderRadius={12}>
+            <Container maxWidth={CONTAINER_MAX_WIDTH} p={50} textAlign='center' bg='custom.8' borderRadius={12}>
                 <Center>
-                    <StyledHeading fontSize={{ base: '24px', md: '40px', lg: '56px' }}>Schedule</StyledHeading>
+                    <StyledHeading fontSize={HEADING_FONT_SIZE}>Schedule</StyledHeading>
                 </Center>
                 <Center textAlign='center'>
                     <br/>
@@ -110,58 +84,15 @@ export const Main = () => {
             <Divider orientation='horizontal' borderColor={'custom.7'}/>
             <Divider orientation='horizontal'/>
 
-            <Container maxWidth={CONTAINER_WIDTH} p={70} textAlign='center' bg='custom.2' borderRadius={12}>
-                <Box bg='custom.8' p={10} color='custom.1' borderRadius={12}>
-                    <StyledHeading pb={10} color='custom.1' fontSize={{ base: '24px', md: '40px', lg: '56px' }}>RSVP</StyledHeading>
-                    <FormControl>
-                        <FormLabel>Guest(s)</FormLabel>
-                        <InputGroup>
-                            <InputLeftElement
-                                pointerEvents='none'
-                                children={<BsFillPersonFill color='custom.1' />}/>
-                            <Input type='tel' placeholder='Name' />
-                        </InputGroup>
-                    </FormControl>
-
-                    <FormControl>
-                        <FormLabel># of Children</FormLabel>
-                        <NumberInput min={0} max={12}>
-                            <NumberInputField placeholder='Please count your offspring'/>
-                            <NumberInputStepper>
-                                <NumberIncrementStepper />
-                                <NumberDecrementStepper />
-                            </NumberInputStepper>
-                        </NumberInput>
-                    </FormControl>
-
-                    <FormControl>
-                        <FormLabel>Email address</FormLabel>
-                        <InputGroup>
-                            <InputLeftElement
-                                    pointerEvents='none'
-                                    children={<EmailIcon color='custom.1' />}/>
-                            <Input type='email' placeholder='For any changes or updates'  />
-                            {/* <FormHelperText textAlign='left' >For any changes or updates</FormHelperText> */}
-                        </InputGroup>
-                    </FormControl>
-
-                    <RadioGroup>
-                        <SimpleGrid columns={{base: 1, sm: 2}}>
-                            <Radio value='1'>Accepts With Pleasure</Radio>
-                            <Radio value='2'>Declines With Regret</Radio>
-                        </SimpleGrid>
-                    </RadioGroup>
-                    <Button onClick={() => console.log('click-a-do')}>Submit</Button>
-                </Box>
-            </Container>
+            <Rsvp />
             
             <Divider orientation='horizontal'/>
             <Divider orientation='horizontal' borderColor={'custom.7'}/>
             <Divider orientation='horizontal'/>
             
-            <Container maxWidth={CONTAINER_WIDTH} p={50} textAlign='center' bg='custom.8' borderRadius={12}>
+            <Container maxWidth={CONTAINER_MAX_WIDTH} padding={[5,50,50]} textAlign='center' bg='custom.8' borderRadius={12}>
                 <Center>
-                    <StyledHeading fontSize={{ base: '24px', md: '40px', lg: '56px' }}>Accommodations</StyledHeading>
+                    <StyledHeading fontSize={HEADING_FONT_SIZE}>Accommodations</StyledHeading>
                 </Center>
 
                 <Text textAlign='center' p={[2,10,10]}>
@@ -188,9 +119,9 @@ export const Main = () => {
             <Divider orientation='horizontal' borderColor={'custom.7'}/>
             <Divider orientation='horizontal'/>
 
-            <Container maxWidth={CONTAINER_WIDTH} p={[10,50,50]} textAlign='center' bg='custom.8' borderRadius={12}>
+            <Container maxWidth={CONTAINER_MAX_WIDTH} padding={[5,50,50]} textAlign='center' bg='custom.8' borderRadius={12}>
                 <Center>
-                    <StyledHeading fontSize={{ base: '24px', md: '40px', lg: '56px' }}>Couple & Crew</StyledHeading>
+                    <StyledHeading fontSize={HEADING_FONT_SIZE}>Couple & Crew</StyledHeading>
                 </Center>
                 <Center textAlign='center'>
                     <br/>
