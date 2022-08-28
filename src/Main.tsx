@@ -33,7 +33,7 @@ export const Main = () => {
             <Divider orientation='horizontal' borderColor={'custom.7'}/>
             <Divider orientation='horizontal'/>
 
-            <Container maxWidth={CONTAINER_MAX_WIDTH} p={50} textAlign='center' bg='custom.8' borderRadius={12}>
+            <Container id="invitation" maxWidth={CONTAINER_MAX_WIDTH} p={50} textAlign='center' bg='custom.8' borderRadius={12}>
                 <Center>
                     <StyledHeading fontSize={HEADING_FONT_SIZE}>Invitation</StyledHeading>
                 </Center>
@@ -64,7 +64,7 @@ export const Main = () => {
             <Divider orientation='horizontal'/>
 
 
-            <Container maxWidth={CONTAINER_MAX_WIDTH} p={50} textAlign='center' bg='custom.8' borderRadius={12}>
+            <Container id="schedule" maxWidth={CONTAINER_MAX_WIDTH} p={50} textAlign='center' bg='custom.8' borderRadius={12}>
                 <Center>
                     <StyledHeading fontSize={HEADING_FONT_SIZE}>Schedule</StyledHeading>
                 </Center>
@@ -90,7 +90,7 @@ export const Main = () => {
             <Divider orientation='horizontal' borderColor={'custom.7'}/>
             <Divider orientation='horizontal'/>
             
-            <Container maxWidth={CONTAINER_MAX_WIDTH} padding={[5,50,50]} textAlign='center' bg='custom.8' borderRadius={12}>
+            <Container id="accomodations" maxWidth={CONTAINER_MAX_WIDTH} padding={[5,50,50]} textAlign='center' bg='custom.8' borderRadius={12}>
                 <Center>
                     <StyledHeading fontSize={HEADING_FONT_SIZE}>Accommodations</StyledHeading>
                 </Center>
@@ -119,7 +119,7 @@ export const Main = () => {
             <Divider orientation='horizontal' borderColor={'custom.7'}/>
             <Divider orientation='horizontal'/>
 
-            <Container maxWidth={CONTAINER_MAX_WIDTH} padding={[5,50,50]} textAlign='center' bg='custom.8' borderRadius={12}>
+            <Container id="couple" maxWidth={CONTAINER_MAX_WIDTH} padding={[5,50,50]} textAlign='center' bg='custom.8' borderRadius={12}>
                 <Center>
                     <StyledHeading fontSize={HEADING_FONT_SIZE}>Couple & Crew</StyledHeading>
                 </Center>
