@@ -26,6 +26,10 @@ export class CdkStack extends cdk.Stack {
     const api = new LambdaRestApi(this, 'API', {
       handler: lambdaFunction,
       proxy: false,
+      defaultCorsPreflightOptions:{
+        allowOrigins: [ '*' ],
+        allowMethods: [ 'POST' ]
+      }
     });
 
     const rsvp = api.root.addResource('rsvp');

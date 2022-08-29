@@ -39,6 +39,10 @@ export async function main(
     await appendSpreadsheet(newRow);
     return {
         body: JSON.stringify({message: newRow}),
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Method': 'GET'
+},
         statusCode: 200,
     };
 }
