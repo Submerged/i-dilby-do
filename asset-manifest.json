@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/i-dilby-do/static/js/main.5c10c3ed.js",
+    "main.js": "/i-dilby-do/static/js/main.86db419d.js",
     "static/js/787.953918d6.chunk.js": "/i-dilby-do/static/js/787.953918d6.chunk.js",
     "static/media/hero.jpg": "/i-dilby-do/static/media/hero.fa57c8c52cb5a50aa91b.jpg",
     "index.html": "/i-dilby-do/index.html",
-    "main.5c10c3ed.js.map": "/i-dilby-do/static/js/main.5c10c3ed.js.map",
+    "main.86db419d.js.map": "/i-dilby-do/static/js/main.86db419d.js.map",
     "787.953918d6.chunk.js.map": "/i-dilby-do/static/js/787.953918d6.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.5c10c3ed.js"
+    "static/js/main.86db419d.js"
   ]
 }
