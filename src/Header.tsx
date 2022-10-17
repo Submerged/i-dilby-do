@@ -12,7 +12,7 @@ const HeaderBox = chakra(Box, {
 
 export const Header = () => {
     return (
-        <Container maxWidth='100vw' p={10} bg='#EFEFEFCC'>
+        <Container maxWidth='100vw' p={[2,2,10]} bg='#EFEFEFCC'>
             <Container maxWidth='700px'>
                 <SimpleGrid columns={{base: 1, sm: 2, md: 2, lg:4, xl: 4}} textAlign='center' color='custom.4'>
                     <HeaderBox><HashLink smooth to="#invite">Invitation</HashLink></HeaderBox>

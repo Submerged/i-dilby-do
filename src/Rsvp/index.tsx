@@ -18,7 +18,8 @@ import {
     NumberInputStepper,
     Radio,
     RadioGroup,
-    SimpleGrid
+    SimpleGrid,
+    Spinner,
 } from "@chakra-ui/react";
 import {Formik, Form, Field, FieldInputProps, FormikProps} from 'formik';
 import axios from 'axios';
@@ -29,14 +30,16 @@ import {useState} from "react";
 
 const RSVP_URL = 'https://i0mwfydiz0.execute-api.us-east-1.amazonaws.com/prod/rsvp';
 
-const API_SUCCESS = 0;
-const API_PENDING = 1;
+const API_INACTIVE = 0;
+const API_SUCCESS = 1;
+const API_PENDING = 2;
+const API_ERROR = 3;
 
 export const Rsvp = () => {
-    const [apiState, setApiState] = useState(API_PENDING);
+    const [apiState, setApiState] = useState(API_INACTIVE);
     const handleSubmit = (values: any) => {
         const { name, children, email, acceptance } = values;
-
+        setApiState(API_PENDING);
         axios.post(RSVP_URL, {
             Name: name,
             Children: children,
@@ -45,18 +48,16 @@ export const Rsvp = () => {
         })
             .then(res => {
                 setApiState(API_SUCCESS);
-                setTimeout(() => {
-                    setApiState(API_PENDING);
-                },5000);
             })
             .catch( error => {
+                setApiState(API_ERROR);
                 console.log(error);
             });
     }
 
     return (
         <Container id='rsvp' p={[10,10,100]} maxWidth={1000}>
-            <Center><Text as='h2'>RSVP</Text></Center>
+            <Center paddingBottom={10}><Text as='h2'>RSVP</Text></Center>
             <Center>
                 <Formik initialValues={{name: '', children: 0, email: '', acceptance: 0}} onSubmit={handleSubmit}>
                     {(props) => (
@@ -110,17 +111,24 @@ export const Rsvp = () => {
                                     <FormControl>
                                         <RadioGroup {...field}>
                                             <SimpleGrid columns={{base: 1, sm: 2}}>
-                                                <Radio {...field} p={2} value='Accept'>Accepts With Pleasure</Radio>
-                                                <Radio {...field} p={2} value='Decline'>Declines With Regret</Radio>
+                                                <Radio {...field} p={2} value='Accept' colorScheme='orange' size={'md'} defaultChecked borderColor={'#565656'}>Accepts With Pleasure</Radio>
+                                                <Radio {...field} p={2} value='Decline' colorScheme='orange' size={'md'} borderColor={'#565656'}>Declines With Regret</Radio>
                                             </SimpleGrid>
                                         </RadioGroup>
                                     </FormControl>
                                 )}
                             </Field>
+                            {apiState === API_PENDING ? <Center><Spinner /></Center> : null }
                             {apiState === API_SUCCESS ?
                                 <Alert status='success'>
                                     <AlertIcon />
                                     RSVP Received. Thank you!
+                                </Alert>
+                                : null}
+                            {apiState === API_ERROR ?
+                                <Alert status='error'>
+                                    <AlertIcon />
+                                    Error! Please contact Charlotte & Dylan
                                 </Alert>
                                 : null}
                             <br/>

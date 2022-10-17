@@ -10,10 +10,15 @@ export const theme = extendTheme({
     components: {
         Button: {
             defaultProps: {
-              colorScheme: 'blackAlpha',
+              colorScheme: 'green',
             }
         },
         FormLabel: {
+            defaultProps: {
+                variant: 'text',
+            }
+        },
+        Radio: {
             defaultProps: {
                 variant: 'text',
             }
@@ -47,16 +52,13 @@ export const theme = extendTheme({
             label: {
                 textColor: '#222',
             },
-            button: {
-                colorScheme: 'red',
-            },
             h1: {
-                fontSize: [15, 30, 70],
+                fontSize: [32, 48, 70],
                 fontFamily: 'Great Vibes, cursive',
             },
             h2: {
                 fontFamily: 'Sacramento, cursive',
-                fontSize: [20, 24, 50],
+                fontSize: [30, 36, 50],
             },
             h4: {
                 fontSize: [14, 16, 22],
