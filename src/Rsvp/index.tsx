@@ -1,5 +1,8 @@
 import {
+    Alert,
+    AlertIcon,
     Button,
+    Text,
     Container,
     Center,
     FormControl,
@@ -7,40 +10,53 @@ import {
     FormLabel,
     Input,
     InputGroup,
-    InputLeftElement, NumberDecrementStepper, NumberIncrementStepper,
-    NumberInput, NumberInputField, NumberInputStepper, Radio, RadioGroup, SimpleGrid
+    InputLeftElement,
+    NumberDecrementStepper,
+    NumberIncrementStepper,
+    NumberInput,
+    NumberInputField,
+    NumberInputStepper,
+    Radio,
+    RadioGroup,
+    SimpleGrid
 } from "@chakra-ui/react";
 import {Formik, Form, Field, FieldInputProps, FormikProps} from 'formik';
 import axios from 'axios';
 import {BsFillPersonFill} from "react-icons/bs";
 import {EmailIcon} from "@chakra-ui/icons";
 import * as React from "react";
-import { StyledHeading, HEADING_FONT_SIZE } from "./const";
+import {useState} from "react";
 
 const RSVP_URL = 'https://i0mwfydiz0.execute-api.us-east-1.amazonaws.com/prod/rsvp';
 
-const handleSubmit = (values: any) => {
-    const { name, children, email, acceptance } = values;
-
-    axios.post(RSVP_URL, {
-        Name: name,
-        Children: children,
-        Email: email,
-        Attendance: acceptance
-    })
-        .then(res => {
-            console.log(res);
-            console.log(res.data);
-        })
-        .catch( error => {
-            console.log(error);
-        });
-}
+const API_SUCCESS = 0;
+const API_PENDING = 1;
 
 export const Rsvp = () => {
+    const [apiState, setApiState] = useState(API_PENDING);
+    const handleSubmit = (values: any) => {
+        const { name, children, email, acceptance } = values;
+
+        axios.post(RSVP_URL, {
+            Name: name,
+            Children: children,
+            Email: email,
+            Attendance: acceptance
+        })
+            .then(res => {
+                setApiState(API_SUCCESS);
+                setTimeout(() => {
+                    setApiState(API_PENDING);
+                },5000);
+            })
+            .catch( error => {
+                console.log(error);
+            });
+    }
+
     return (
-        <Container id='rsvp' p={10} bg='#F9F9F9' borderRadius={15}>
-            <Center><StyledHeading fontSize={HEADING_FONT_SIZE}>RSVP</StyledHeading></Center>
+        <Container id='rsvp' p={[10,10,100]} maxWidth={1000}>
+            <Center><Text as='h2'>RSVP</Text></Center>
             <Center>
                 <Formik initialValues={{name: '', children: 0, email: '', acceptance: 0}} onSubmit={handleSubmit}>
                     {(props) => (
@@ -101,8 +117,16 @@ export const Rsvp = () => {
                                     </FormControl>
                                 )}
                             </Field>
-
-                            <Center><Button type="submit" colorScheme='teal' variant='solid'>Submit</Button></Center>
+                            {apiState === API_SUCCESS ?
+                                <Alert status='success'>
+                                    <AlertIcon />
+                                    RSVP Received. Thank you!
+                                </Alert>
+                                : null}
+                            <br/>
+                            <Center>
+                                <Button type="submit" colorScheme='teal' variant='solid'>Submit</Button>
+                            </Center>
                         </Form>
                     )}
                 </Formik>

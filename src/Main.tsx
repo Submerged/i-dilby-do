@@ -7,14 +7,14 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 import { Link } from '@chakra-ui/react'
-import { Rsvp } from "./Rsvp";
+import { Rsvp_dead } from "./Rsvp_dead";
 import { HEADING_FONT_SIZE, StyledHeading } from "./const";
 
 
 export const Main = () => {
     return (
-        <VStack fontFamily= 'Ruluko, sans-serif' color='custom.4' spacing={0}>
-            <Box width="100%" id="invitation" p={10} textAlign='center' bg='custom.8'>
+        <VStack fontFamily= 'Ruluko, sans-serif' color='#444' spacing={0}>
+            <Box width="100%" id="invitation" p={10} textAlign='center' bg='#CDCFD1'>
                 <Center>
                     <StyledHeading fontSize={HEADING_FONT_SIZE}>Invitation</StyledHeading>
                 </Center>
@@ -57,7 +57,7 @@ export const Main = () => {
             </Box>
 
             <Box width='100%'>
-                <Rsvp />
+                <Rsvp_dead />
             </Box>
             
             <Box width='100%'>
