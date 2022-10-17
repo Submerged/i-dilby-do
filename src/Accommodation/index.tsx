@@ -1,4 +1,4 @@
-import {Box, Container, Center, Stack, Text, Link} from "@chakra-ui/react";
+import {Box, Container, Center, Text, Link} from "@chakra-ui/react";
 import * as React from "react";
 
 export const Accommodation = () => {
@@ -15,10 +15,10 @@ export const Accommodation = () => {
                         <br/>
                         To book accommodations, please use wedding reservation code: WOOLFREY/PERRY.
                     </Text>
-                    <Text as='h2'>
-                        COVID Protocols
+                    <Text as='h4'>
+                        Covid Protocols
                     </Text>
-                    <Center textAlign='center' color='custom.4'>
+                    <Center textAlign='center'>
                         <br/>
                         At this time, we do not intend to have any COVID protocols in place, but feel free to do what feels safe for you.
                         <br />

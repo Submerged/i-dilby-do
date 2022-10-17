@@ -68,14 +68,14 @@ export const Rsvp = () => {
                                         <InputGroup>
                                             <InputLeftElement
                                                 pointerEvents='none'
-                                                children={<BsFillPersonFill color='custom.1' />}/>
+                                                children={<BsFillPersonFill />}/>
                                             <Input {...field} placeholder='Name(s)' />
                                             <FormErrorMessage>{form.errors.name}</FormErrorMessage>
                                         </InputGroup>
                                     </FormControl>
                                 )}
                             </Field>
-
+                            <br />
                             <Field name="children">
                                 {({ field, form } : { field: FieldInputProps<string>, form: FormikProps<{ children: string }> }) => (
                                     <FormControl>
@@ -90,7 +90,7 @@ export const Rsvp = () => {
                                     </FormControl>
                                 )}
                             </Field>
-
+                            <br />
                             <Field name="email">
                                 {({ field, form } : { field: FieldInputProps<string>, form: FormikProps<{ email: string }> }) => (
                                     <FormControl>
@@ -98,13 +98,13 @@ export const Rsvp = () => {
                                         <InputGroup>
                                             <InputLeftElement
                                                 pointerEvents='none'
-                                                children={<EmailIcon color='custom.1' />}/>
+                                                children={<EmailIcon />}/>
                                             <Input {...field} type='email' placeholder='For any changes or updates'  />
                                         </InputGroup>
                                     </FormControl>
                                 )}
                             </Field>
-
+                            <br />
                             <Field name="acceptance">
                                 {({ field, form } : { field: FieldInputProps<string>, form: FormikProps<{ acceptance: string}> }) => (
                                     <FormControl>
@@ -125,7 +125,7 @@ export const Rsvp = () => {
                                 : null}
                             <br/>
                             <Center>
-                                <Button type="submit" colorScheme='teal' variant='solid'>Submit</Button>
+                                <Button type="submit" variant='solid'>Submit</Button>
                             </Center>
                         </Form>
                     )}

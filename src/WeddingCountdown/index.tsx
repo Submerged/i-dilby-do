@@ -1,4 +1,4 @@
-import { Text, Box } from "@chakra-ui/react";
+import { Text, Box, Container, Center } from "@chakra-ui/react";
 import Countdown from 'react-countdown';
 import * as React from "react";
 
@@ -13,13 +13,13 @@ const renderer = ({ total, days, hours, minutes } : CountdownProps) => {
     if (total) {
         // Render a countdown
         return (
-            <Text as='h2'>
+            <Text as='h3'>
                 {days} days, {hours} hours, {minutes} minutes until #idilbydo
             </Text>
         );
     } else {
         // Render a finished state
-        return <Text as='h2'>TODAY!</Text>;
+        return <Text as='h3'>TODAY!</Text>;
     }
 };
 const weddingDate = new Date('2023-10-06T15:00:00')
@@ -27,9 +27,13 @@ const weddingDate = new Date('2023-10-06T15:00:00')
 
 export const WeddingCountdown = () => {
     return (
-        <Box>
-            <Text as='h2'> October 6, 2023 </Text>
-            <Countdown date={weddingDate} renderer={renderer}/>
-        </Box>
+        <Container id="countdown" maxWidth='100vw'>
+            <Center sx={{textAlign: 'center'}}>
+                <Box width='100%' bg='#EFFEFEF' pb={[20,20,50]} pt={[20]}>
+                    <Text as='h1'> October 6, 2023 </Text>
+                    <Countdown date={weddingDate} renderer={renderer}/>
+                </Box>
+            </Center>
+        </Container>
     );
 }
