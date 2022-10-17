@@ -1,10 +1,6 @@
-import {Center, Container,Text} from "@chakra-ui/react";
+import { Text, Box } from "@chakra-ui/react";
 import Countdown from 'react-countdown';
 import * as React from "react";
-import "@fontsource/amatic-sc"
-import "@fontsource/shadows-into-light"
-import "@fontsource/ruluko"
-
 
 interface CountdownProps {
     total: number,
@@ -17,13 +13,13 @@ const renderer = ({ total, days, hours, minutes } : CountdownProps) => {
     if (total) {
         // Render a countdown
         return (
-            <Text fontFamily= 'Ruluko, Sans Serif' color='custom.4' fontSize='120%'>
+            <Text as='h2'>
                 {days} days, {hours} hours, {minutes} minutes until #idilbydo
             </Text>
         );
     } else {
         // Render a finished state
-        return <Container />;
+        return <Text as='h2'>TODAY!</Text>;
     }
 };
 const weddingDate = new Date('2023-10-06T15:00:00')
@@ -31,8 +27,9 @@ const weddingDate = new Date('2023-10-06T15:00:00')
 
 export const WeddingCountdown = () => {
     return (
-        <Center>
+        <Box>
+            <Text as='h2'> October 6, 2023 </Text>
             <Countdown date={weddingDate} renderer={renderer}/>
-        </Center>
+        </Box>
     );
 }

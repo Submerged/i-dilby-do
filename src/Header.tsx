@@ -1,26 +1,26 @@
 import * as React from "react"
-import {Box, SimpleGrid, Link, chakra} from "@chakra-ui/react";
-import "@fontsource/oswald"
-import "@fontsource/allura"
-import "@fontsource/bonheur-royale"
+import {Box, SimpleGrid, Container, chakra} from "@chakra-ui/react";
+
+import { HashLink } from 'react-router-hash-link';
 
 const HeaderBox = chakra(Box, {
     baseStyle:{
-        fontFamily: `Ruluko, sans-serif`,
-        fontSize: '16px'
+        fontFamily: `Open Sans`,
+        fontSize: '18px'
     }
 });
 
 export const Header = () => {
     return (
-        <Box >
-            <Box p={50} textAlign='center' fontFamily={`'Sacramento', sans-serif`} fontSize={{ base: '24px', md: '40px', lg: '56px' }} bgGradient='radial(custom.8, custom.8, custom.8, custom.8, custom.3, custom.3, custom.3)' color='custom.4'>Charlotte & Dylan</Box>
-            <SimpleGrid columns={{base: 2, sm: 2, md: 2, lg:4, xl: 4}} textAlign='center' color='custom.4' pt={4}>
-                <HeaderBox><Link>Invitation</Link></HeaderBox>
-                <HeaderBox><Link>Schedule</Link></HeaderBox>
-                <HeaderBox><Link>RSVP</Link></HeaderBox>
-                <HeaderBox><Link>Accommodations</Link></HeaderBox>
-            </SimpleGrid>
-        </Box>
+        <Container maxWidth='100vw' p={10} bg='#EFEFEFCC'>
+            <Container maxWidth='700px'>
+                <SimpleGrid columns={{base: 1, sm: 2, md: 2, lg:4, xl: 4}} textAlign='center' color='custom.4'>
+                    <HeaderBox><HashLink smooth to="#invite">Invitation</HashLink></HeaderBox>
+                    <HeaderBox><HashLink smooth to="#schedule">Schedule</HashLink></HeaderBox>
+                    <HeaderBox><HashLink smooth to="#rsvp">RSVP</HashLink></HeaderBox>
+                    <HeaderBox><HashLink smooth to="#accommodations">Accommodations</HashLink></HeaderBox>
+                </SimpleGrid>
+            </Container>
+        </Container>
     );
 }
