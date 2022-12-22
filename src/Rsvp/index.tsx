@@ -93,7 +93,7 @@ export const Rsvp = () => {
                   id='name'
                   placeholder='Enter Full Name'
                   {...register(`guests.${index}.name`, {
-                    required: 'This is required',
+                    required: 'Full Name Required',
                     minLength: { value: 3, message: 'Minimum length should be 3' },
                   })}
                 />
@@ -104,8 +104,8 @@ export const Rsvp = () => {
               </FormControl>
               <FormControl key={`guests.${index}.food`} isInvalid={Boolean(errors.guests)}>
                 <FormLabel>Food Choice</FormLabel>
-                <Select {...register(`guests.${index}.food`, {
-                  required: 'This is required',
+                <Select errorBorderColor={'none'} {...register(`guests.${index}.food`, {
+                  required: 'Food Selection Required',
                   minLength: { value: 4, message: 'Minimum length should be 4' },
                 })}>
                   <option>Beef</option>
@@ -126,26 +126,26 @@ export const Rsvp = () => {
                     {...register(`guests.${index}.restrictions`)}
                   />
                   <InputRightAddon>
-                    <IconButton icon={<CloseIcon />} colorScheme='red' onClick={() => remove(index)}  aria-label={'remove button'}/>
+                    <IconButton icon={<CloseIcon />} colorScheme='teal' onClick={() => remove(index)}  aria-label={'remove button'}/>
                   </InputRightAddon>
                 </InputGroup>
               </FormControl>
             </>
           ))}
           </SimpleGrid>
-          <Center>
+          <Center p={10}>
             <Button m={4} rightIcon={<HamburgerIcon />} colorScheme='teal' onClick={() => append({ name: '', food: '', restrictions: ''})}>
               Add a Guest
             </Button>
           </Center>
-          <HStack>
+          <SimpleGrid columns={[1,1,3]} spacing={4}>
             <FormControl key={`email`} isInvalid={Boolean(errors.email)}>
               <FormLabel htmlFor='email'>Email</FormLabel>
               <Input
                 id='email'
                 placeholder='Enter Email Address'
                 {...register(`email`, {
-                  required: 'Email is required',
+                  required: 'Email Required',
                   minLength: { value: 4, message: 'Minimum length should be 4' },
                 })}
               />
@@ -170,13 +170,13 @@ export const Rsvp = () => {
               render={({ field: { onChange, value } }) => (
                 <RadioGroup onChange={onChange} value={value} style={{fontWeight: 'bold', borderColor: 'black'}}>
                   <Stack direction="row">
-                    <Radio defaultChecked colorScheme='red' value={'Accept'} checked>Accept With Pleasure</Radio>
-                    <Radio colorScheme='red' value={'Decline'}>Decline With Regret</Radio>
+                    <Radio defaultChecked colorScheme='teal' value={'Accept'} checked>Accept With Pleasure</Radio>
+                    <Radio colorScheme='teal' value={'Decline'}>Decline With Regret</Radio>
                   </Stack>
                 </RadioGroup>
               )}
             />
-          </HStack>
+          </SimpleGrid>
           <Center mt={10}>
             <FormControl key={`music`}>
               <FormLabel htmlFor='music'>Music Suggestion</FormLabel>
