@@ -7,7 +7,6 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 import { Link } from '@chakra-ui/react'
-import { Rsvp_dead } from "./Rsvp_dead";
 import { HEADING_FONT_SIZE, StyledHeading } from "./const";
 
 
@@ -54,10 +53,6 @@ export const Main = () => {
                     <br/>
                     7:00 pm - The Wilds Resort - Cocktail & Hors d'ouvres reception
                 </Center>
-            </Box>
-
-            <Box width='100%'>
-                <Rsvp_dead />
             </Box>
             
             <Box width='100%'>

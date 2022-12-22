@@ -43,10 +43,10 @@ export const theme = extendTheme({
                 bg: '#EFEFEF',
             },
             input: {
-                border: '1px solid #121212',
+                border: '1px solid #383838',
                 _placeholder:{
                     color: '#444',
-                    fontFamily: 'Open Sans',
+                    fontFamily: 'Poiret One',
                 },
             },
             label: {
@@ -61,7 +61,7 @@ export const theme = extendTheme({
                 fontSize: [30, 36, 50],
             },
             h4: {
-                fontSize: [14, 16, 22],
+                fontSize: [12, 14, 18],
             },
             p: {
                 fontColor: '#444444',

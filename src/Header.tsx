@@ -5,7 +5,7 @@ import { HashLink } from 'react-router-hash-link';
 
 const HeaderBox = chakra(Box, {
     baseStyle:{
-        fontFamily: `Open Sans`,
+        fontFamily: `Poiret One`,
         fontSize: '18px'
     }
 });

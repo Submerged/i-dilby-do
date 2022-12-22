@@ -6,7 +6,7 @@ export const Accommodation = () => {
         <Container id="accommodations" maxWidth='100vw' p={0} pt={10}>
             <Center sx={{textAlign: 'center'}}>
                 <Box width='100%' bg='#CCC' pb={[50,50,100]} pt={[20]}>
-                    <Text as='h2'>Accommodation</Text>
+                    <Text as='h2'>Accommodations</Text>
                     <Text textAlign='center' p={[2,10,10]}>
                         For more information on The Wilds Resort, check out {' '}
                         <Link href= 'https://thewilds.ca' isExternal color='teal.500'>
@@ -16,9 +16,9 @@ export const Accommodation = () => {
                         To book accommodations, please use wedding reservation code: WOOLFREY/PERRY.
                     </Text>
                     <Text as='h4'>
-                        Covid Protocols
+                        - Covid Protocols -
                     </Text>
-                    <Center textAlign='center'>
+                    <Center textAlign='center' as ='h4'>
                         <br/>
                         At this time, we do not intend to have any COVID protocols in place, but feel free to do what feels safe for you.
                         <br />
