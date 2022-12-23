@@ -43,9 +43,10 @@ export const theme = extendTheme({
                 bg: '#EFEFEF',
             },
             input: {
-                border: '1px solid #383838',
+                border: '1px solid #999',
                 _placeholder:{
                     color: '#444',
+                    fontWeight: 'bold',
                     fontFamily: 'Poiret One',
                 },
             },

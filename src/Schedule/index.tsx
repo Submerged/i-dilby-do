@@ -16,7 +16,7 @@ export const Schedule = () => {
                             - break -
                             <br/>
                             <br/>
-                            7:00 pm - The Wilds Resort - Cocktail & Hors d'ouvres reception
+                            7:00 pm - The Wilds Resort - Dinner reception
                         </Center>
                     </Text>
                 </Box>

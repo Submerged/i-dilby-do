@@ -15,6 +15,7 @@ export const Accommodation = () => {
                         <br/>
                         To book accommodations, please use wedding reservation code: WOOLFREY/PERRY.
                     </Text>
+                    <br/>
                     <Text as='h4'>
                         - Covid Protocols -
                     </Text>

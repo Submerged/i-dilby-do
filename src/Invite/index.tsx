@@ -12,7 +12,7 @@ export const Invite = () => {
                        <Text as='p'>Friday |  Oct 6 | 2023</Text>
                        <Text as='p'>The Wilds Resort</Text>
                        <Text as='p'>643 Salmonier Line, Route 90 South, Holyrood, NL, A0A 2R0</Text>
-                       <Text as='p'>With cocktail reception later in the evening</Text>
+                       <Text as='p'>with dinner reception later in the evening</Text>
                    </Stack>
                </Box>
             </Center>
