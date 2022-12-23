@@ -3,6 +3,7 @@ import { GoogleSpreadsheet } from "google-spreadsheet";
 import { omit } from 'lodash';
 // Config variables
 const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
+const API_KEY = process.env.API_KEY;
 const SHEET_ID = process.env.REACT_APP_SHEET_ID;
 const CLIENT_EMAIL = process.env.REACT_APP_GOOGLE_CLIENT_EMAIL;
 const PRIVATE_KEY = process.env.REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY;
@@ -31,11 +32,17 @@ export async function main(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
   console.log('event 👉', event);
-
-  const newRow = JSON.parse(<string>event.body);
-  console.log(newRow);
+  console.log(event.headers);
+  console.log(API_KEY);
+  const body = JSON.parse(<string>event.body);
+  if(body.goose !== API_KEY) {
+    return {
+      statusCode: 403,
+    };
+  }
+  console.log(body);
   try {
-    const guests = JSON.parse(newRow?.Guests);
+    const guests = JSON.parse(body?.Guests);
     const rows = [];
     guests.map((guest: any) =>
       rows.push({
@@ -44,13 +51,13 @@ export async function main(
         Restrictions: guest?.restrictions,
       })
     );
-    newRow.Date = Date();
-    rows.push(omit(newRow, 'Guests'));
+    body.Date = Date();
+    rows.push(omit(body, ['Guests', 'goose']));
     await appendSpreadsheet(rows);
   } catch(e) {
     console.log(e);
     return {
-      body: JSON.stringify({message: newRow}),
+      body: JSON.stringify({message: body}),
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Method': 'GET'
@@ -59,7 +66,7 @@ export async function main(
     }
   }
   return {
-    body: JSON.stringify({message: newRow}),
+    body: JSON.stringify({message: body}),
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Method': 'GET'

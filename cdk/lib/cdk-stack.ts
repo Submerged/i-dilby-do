@@ -16,6 +16,7 @@ export class CdkStack extends cdk.Stack {
       handler: 'main',
       entry: path.join(__dirname, `/../handlers/rsvp/index.ts`),
       environment:{
+        API_KEY: process.env.API_KEY || 'uh oh',
         REACT_APP_SPREADSHEET_ID: process.env.REACT_APP_SPREADSHEET_ID || 'uh oh',
         REACT_APP_SHEET_ID: process.env.REACT_APP_SHEET_ID || 'uh oh',
         REACT_APP_GOOGLE_CLIENT_EMAIL: process.env.REACT_APP_GOOGLE_CLIENT_EMAIL || 'uh oh',
