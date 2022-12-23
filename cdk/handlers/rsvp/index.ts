@@ -1,9 +1,12 @@
 import {APIGatewayProxyEventV2, APIGatewayProxyResultV2} from 'aws-lambda';
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { omit } from 'lodash';
+const crypto = require('crypto');
+
 // Config variables
 const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
 const API_KEY = process.env.API_KEY;
+const INVITE_KEY = process.env.INVITE_KEY;
 const SHEET_ID = process.env.REACT_APP_SHEET_ID;
 const CLIENT_EMAIL = process.env.REACT_APP_GOOGLE_CLIENT_EMAIL;
 const PRIVATE_KEY = process.env.REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY;
@@ -15,6 +18,15 @@ interface RSVPProp  {
   Attendance: string;
   Date: string;
 }
+// Verify an API key provided by a client
+const verifyApiKey = (apiKey:string) => {
+  // Split the API key into the original value and the signature
+  const [key, signature] = apiKey.split('.');
+
+  // Verify the signature using the private key
+  return crypto.createHmac('sha256', INVITE_KEY!.replace(/\\n/g, "\n")).update(key).digest('hex') === signature;
+}
+
 const appendSpreadsheet = async (rows: any[]) => {
   await doc.useServiceAccountAuth({
     client_email: CLIENT_EMAIL!,
@@ -35,11 +47,12 @@ export async function main(
   console.log(event.headers);
   console.log(API_KEY);
   const body = JSON.parse(<string>event.body);
-  if(body.goose !== API_KEY) {
+  if(!verifyApiKey(body.goose)) {
     return {
       statusCode: 403,
     };
-  }
+  };
+
   console.log(body);
   try {
     const guests = JSON.parse(body?.Guests);
