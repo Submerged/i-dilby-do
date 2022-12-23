@@ -29,7 +29,7 @@ export const WeddingCountdown = () => {
     return (
         <Container id="countdown" maxWidth='100vw'>
             <Center sx={{textAlign: 'center'}}>
-                <Box width='100%' bg='#EFFEFEF' pb={[20,20,50]} pt={[20]}>
+                <Box width='100%' bg='#EFFEFEF' pb={[20,20,50]} pt={[5]}>
                     <Text as='h1'> October 6, 2023 </Text>
                     <Countdown date={weddingDate} renderer={renderer}/>
                 </Box>

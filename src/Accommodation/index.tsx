@@ -3,7 +3,7 @@ import * as React from "react";
 
 export const Accommodation = () => {
     return (
-        <Container id="accommodations" maxWidth='100vw' p={0} pt={10}>
+        <Container id="accommodations" maxWidth='100vw' p={0}>
             <Center sx={{textAlign: 'center'}}>
                 <Box width='100%' bg='#CCC' pb={[50,50,100]} pt={[20]}>
                     <Text as='h2'>Accommodations</Text>
