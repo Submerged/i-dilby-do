@@ -67,6 +67,7 @@ export const Rsvp = () => {
       Attendance: attendance,
       Music: music,
       Guests: JSON.stringify(guests),
+      goose: searchParams.get('goose') ?? 'no goose'
     })
     .then(res => {
       setApiState(API_SUCCESS);
@@ -74,7 +75,7 @@ export const Rsvp = () => {
     })
     .catch( error => {
       setApiState(API_ERROR);
-      console.log(error);
+      alert(error);
     });
   }
 
@@ -192,6 +193,14 @@ export const Rsvp = () => {
               <Alert status='success' variant='left-accent' mt={5}>
                 <AlertIcon />
                 RSVP Received. Thank you!
+              </Alert>
+              : null}
+            {apiState === API_ERROR ?
+              <Alert status='error' variant='left-accent' mt={5}>
+                <AlertIcon />
+                Error! Your Reservation was not received. This is likely a problem with your invite
+                code! Go back to your email and click your invite to RSVP. If that still doesn't work
+                please contact Charlotte & Dylan<b>{searchParams.get('code')}</b>
               </Alert>
               : null}
             <Center mt={20}>

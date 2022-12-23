@@ -1,8 +1,12 @@
 import {APIGatewayProxyEventV2, APIGatewayProxyResultV2} from 'aws-lambda';
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { omit } from 'lodash';
+const crypto = require('crypto');
+
 // Config variables
 const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
+const API_KEY = process.env.API_KEY;
+const INVITE_KEY = process.env.INVITE_KEY;
 const SHEET_ID = process.env.REACT_APP_SHEET_ID;
 const CLIENT_EMAIL = process.env.REACT_APP_GOOGLE_CLIENT_EMAIL;
 const PRIVATE_KEY = process.env.REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY;
@@ -14,6 +18,15 @@ interface RSVPProp  {
   Attendance: string;
   Date: string;
 }
+// Verify an API key provided by a client
+const verifyApiKey = (apiKey:string) => {
+  // Split the API key into the original value and the signature
+  const [key, signature] = apiKey.split('.');
+
+  // Verify the signature using the private key
+  return crypto.createHmac('sha256', INVITE_KEY!.replace(/\\n/g, "\n")).update(key).digest('hex') === signature;
+}
+
 const appendSpreadsheet = async (rows: any[]) => {
   await doc.useServiceAccountAuth({
     client_email: CLIENT_EMAIL!,
@@ -31,11 +44,18 @@ export async function main(
   event: APIGatewayProxyEventV2,
 ): Promise<APIGatewayProxyResultV2> {
   console.log('event 👉', event);
+  console.log(event.headers);
+  console.log(API_KEY);
+  const body = JSON.parse(<string>event.body);
+  if(!verifyApiKey(body.goose)) {
+    return {
+      statusCode: 403,
+    };
+  };
 
-  const newRow = JSON.parse(<string>event.body);
-  console.log(newRow);
+  console.log(body);
   try {
-    const guests = JSON.parse(newRow?.Guests);
+    const guests = JSON.parse(body?.Guests);
     const rows = [];
     guests.map((guest: any) =>
       rows.push({
@@ -44,13 +64,13 @@ export async function main(
         Restrictions: guest?.restrictions,
       })
     );
-    newRow.Date = Date();
-    rows.push(omit(newRow, 'Guests'));
+    body.Date = Date();
+    rows.push(omit(body, ['Guests', 'goose']));
     await appendSpreadsheet(rows);
   } catch(e) {
     console.log(e);
     return {
-      body: JSON.stringify({message: newRow}),
+      body: JSON.stringify({message: body}),
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Method': 'GET'
@@ -59,7 +79,7 @@ export async function main(
     }
   }
   return {
-    body: JSON.stringify({message: newRow}),
+    body: JSON.stringify({message: body}),
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Method': 'GET'
