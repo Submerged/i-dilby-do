@@ -33,6 +33,7 @@ export async function main(
   console.log('event 👉', event);
 
   const newRow = JSON.parse(<string>event.body);
+  console.log(newRow);
   try {
     const guests = JSON.parse(newRow?.Guests);
     const rows = [];
@@ -47,6 +48,7 @@ export async function main(
     rows.push(omit(newRow, 'Guests'));
     await appendSpreadsheet(rows);
   } catch(e) {
+    console.log(e);
     return {
       body: JSON.stringify({message: newRow}),
       headers: {

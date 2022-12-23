@@ -14,7 +14,7 @@ const renderer = ({ total, days, hours, minutes } : CountdownProps) => {
         // Render a countdown
         return (
             <Text as='h3'>
-                {days} days, {hours} hours, {minutes} minutes until #idilbydo
+                {days} days, {hours} hours, {minutes} minutes
             </Text>
         );
     } else {
