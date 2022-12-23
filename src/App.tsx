@@ -26,11 +26,11 @@ export const App = () => (
                 <Header/>
             </Box>
             <Invite />
-            <Center p={10}>
+            <Center p={70}>
                 <Image maxHeight={10} objectFit='cover' src={euc} />
             </Center>
             <WeddingCountdown />
-            <Center p={10}>
+            <Center p={70}>
                 <Image maxHeight={10} objectFit='cover' src={euc} />
             </Center>
             <Container id="invite" maxWidth={1300}>
@@ -39,12 +39,12 @@ export const App = () => (
                 </Box>
             </Container>
             <Schedule />
-            <Center p={50}>
-                <Image maxHeight={50} objectFit='cover' src={euc} />
+            <Center p={70}>
+                <Image maxHeight={10} objectFit='cover' src={euc} />
             </Center>
             <Rsvp />
-            <Center p={50}>
-                <Image maxHeight={50} objectFit='cover' src={euc} />
+            <Center p={70}>
+                <Image maxHeight={10} objectFit='cover' src={euc} />
             </Center>
             <Accommodation />
             <CoupleCrew />

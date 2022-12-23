@@ -80,7 +80,7 @@ export const Rsvp = () => {
 
   // @ts-ignore
   return (
-    <Container id='rsvp' p={[10,10,100]} maxWidth={1450}>
+    <Container id='rsvp' maxWidth={1450}>
       <Center>
       <Box width='100vw' border='30px solid #FFF' padding={[50,50,50]} backgroundImage="url('/i-dilby-do/euc-bg.png')" backgroundSize={'cover'} backgroundPosition="center" backgroundRepeat="no-repeat">
         <Center paddingBottom={10}><Text as='h2'>RSVP</Text></Center>
