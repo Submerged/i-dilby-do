@@ -127,9 +127,12 @@ export const Rsvp = () => {
                       placeholder='Enter Food Restrictions'
                       {...register(`guests.${index}.restrictions`)}
                     />
-                    <InputRightAddon>
-                      <IconButton icon={<CloseIcon />} colorScheme='blackAlpha' onClick={() => remove(index)}  aria-label={'remove button'}/>
-                    </InputRightAddon>
+                    {index > 0 ? (
+                      <InputRightAddon>
+                        <IconButton icon={<CloseIcon />} colorScheme='blackAlpha' onClick={() => remove(index)}  aria-label={'remove button'}/>
+                      </InputRightAddon>
+                    ) : null}
+
                   </InputGroup>
                 </FormControl>
               </>
@@ -137,7 +140,7 @@ export const Rsvp = () => {
             </SimpleGrid>
             <Center p={10}>
               <Button m={4} rightIcon={<HamburgerIcon />} colorScheme='teal' onClick={() => append({ name: '', food: '', restrictions: ''})}>
-                Add a Guest
+                Add Guest
               </Button>
             </Center>
             <SimpleGrid columns={[1,1,3]} spacing={4}>
