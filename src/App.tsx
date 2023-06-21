@@ -16,9 +16,7 @@ import { Invite } from './Invite';
 import { Schedule } from './Schedule';
 import { Rsvp } from './Rsvp';
 import { Accommodation } from './Accommodation';
-import { CoupleCrew } from './CoupleCrew';
-
-
+import {Registry} from "./Registry";
 export const App = () => (
     <ChakraProvider theme={theme}>
         <Box>
@@ -39,6 +37,7 @@ export const App = () => (
                 </Box>
             </Container>
             <Schedule />
+            <Registry />
             <Center p={70}>
                 <Image maxHeight={10} objectFit='cover' src={euc} />
             </Center>
@@ -47,7 +46,6 @@ export const App = () => (
                 <Image maxHeight={10} objectFit='cover' src={euc} />
             </Center>
             <Accommodation />
-            <CoupleCrew />
             <Footer/>
         </Box>
     </ChakraProvider>

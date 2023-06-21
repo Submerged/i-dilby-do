@@ -15,11 +15,12 @@ export const Header = () => {
     const [searchParams] = useSearchParams();
     const code = searchParams.get('goose');
     return (
-        <Container maxWidth='100vw' p={[2,2,10]} bg='#EFEFEFCC'>
-            <Container maxWidth='700px'>
-                <SimpleGrid columns={{base: 1, sm: 2, md: 2, lg:4, xl: 4}} textAlign='center' color='custom.4'>
+        <Container maxWidth='100vw' p={[2,2,6]} bg='#EFEFEFDD' borderBottom={'1px solid #CCC'}>
+            <Container paddingLeft={[0,0,40]} paddingRight={[0,0,40]}>
+                <SimpleGrid columns={{base: 2, sm: 3, md: 3, lg:5, xl: 5}} textAlign='center' color='custom.4' fontWeight={'bold'}>
                     <HeaderBox><HashLink smooth to={`?goose=${code}#invite`}>Invitation</HashLink></HeaderBox>
                     <HeaderBox><HashLink smooth to={`?goose=${code}#schedule`}>Schedule</HashLink></HeaderBox>
+                    <HeaderBox><HashLink smooth to={`?goose=${code}#registry`}>Registry</HashLink></HeaderBox>
                     <HeaderBox><HashLink smooth to={`?goose=${code}#rsvp`}>RSVP</HashLink></HeaderBox>
                     <HeaderBox><HashLink smooth to={`?goose=${code}#accommodations`}>Accommodations</HashLink></HeaderBox>
                 </SimpleGrid>
